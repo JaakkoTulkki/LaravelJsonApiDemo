@@ -47,3 +47,9 @@ $factory->define(App\Comment::class, function (Faker $faker) {
         },
     ];
 });
+
+$factory->define(App\Topic::class, function (Faker $faker) {
+    return [
+        'topic_name' => $faker->sentence(3),
+    ];
+});
