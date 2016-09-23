@@ -36,13 +36,17 @@ class Schema extends EloquentSchema
             throw new SchemaException('Expecting a topic model.');
         }
 
+
         return [
             'posts' => [
+                self::SHOW_DATA => true,
                 self::SHOW_SELF => true,
                 self::SHOW_RELATED => true,
                 self::META => function () use ($resource) {
-                    ['total' => $resource->posts()->count()];
+                    return ['total' => $resource->posts()->count()];
                 },
+                self::DATA => $resource->posts,
+
             ],
         ];
     }
