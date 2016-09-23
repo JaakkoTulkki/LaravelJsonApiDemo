@@ -6,6 +6,7 @@ use App\Post;
 use App\Topic;
 use CloudCreativity\JsonApi\Exceptions\SchemaException;
 use CloudCreativity\LaravelJsonApi\Schema\EloquentSchema;
+use Illuminate\Database\Eloquent\Collection;
 
 class Schema extends EloquentSchema
 {
@@ -37,19 +38,29 @@ class Schema extends EloquentSchema
         }
 
 
+        $posts = $resource->posts;
+
+        $comments = new Collection();
+        foreach($posts as $post) {
+            $comments = $comments->merge($post->comments);
+        }
+
         return [
             'posts' => [
                 self::SHOW_DATA => true,
                 self::SHOW_SELF => true,
                 self::SHOW_RELATED => true,
-                self::META => function () use ($resource) {
-                    return ['total' => $resource->posts()->count()];
-                },
-                self::DATA => $resource->posts,
-
+                self::DATA => $posts,
             ],
+
+
+
         ];
     }
 
+    public function getIncludePaths()
+    {
+        return ['posts', 'posts.comments'];
+    }
 
 }

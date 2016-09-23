@@ -1,6 +1,6 @@
 <?php
 
-namespace App\JsonApi\Topics;
+namespace App\JsonApi\Comments;
 
 use App\Person;
 use App\Post;
@@ -19,29 +19,16 @@ class Hydrator extends AbstractHydrator
      */
     protected function hydrateAttributes(StandardObjectInterface $attributes, $record)
     {
-        if (!$record instanceof Topic) {
+        if (!$record instanceof Content) {
             throw new HydratorException('Expecting a Topic model.');
         }
 
         $data = $attributes->getMany([
-            'topic_name',
+            'content',
         ]);
 
         $record->fill($data);
     }
 
-
-    /**
-     * @param RelationshipInterface $relationship
-     * @param Topic $model
-     */
-//    protected function hydratePostsRelationship(RelationshipInterface $relationship, Topic $model)
-//    {
-//        /** @var Topic|null */
-//
-//        $postIds = Post::find($relationship->getIdentifiers()->getIds());
-//        $model->posts()->associate($postIds);
-//
-//    }
 
 }
