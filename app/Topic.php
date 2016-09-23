@@ -20,9 +20,9 @@ class Topic extends Model
     /**
      * @return HasMany
      */
-//    public function posts()
-//    {
-//        return $this->hasMany(Post::class, 'topic_id');
-//    }
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'topic_id');
+    }
 
 }

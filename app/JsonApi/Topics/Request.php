@@ -12,36 +12,13 @@ class Request extends AbstractRequest
      */
     protected $resourceType = Schema::RESOURCE_TYPE;
 
-    /**
-     * @var array
-     */
-//    protected $hasMany = [
-//        'posts'
-//    ];
-
-    /**
-     * @var array
-     */
-    protected $allowedSortParameters = [
-//        'created_at',
-//        'updated_at',
-        'topic_name',
-    ];
 
     /**
      * @var array
      */
     protected $allowedFilteringParameters = [
-        'topic_name',
+        'id',
     ];
 
-    /**
-     * Request constructor.
-     * @param Validators $validator
-     */
-//    public function __construct(Validators $validator)
-//    {
-//        parent::__construct($validator);
-//    }
 
 }

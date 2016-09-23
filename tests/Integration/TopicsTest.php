@@ -35,7 +35,7 @@ class TopicsTest extends TestCase
             ->doCreate($data)
             ->assertCreateResponse($data);
 
-//        $this->assertModelCreated($model, $id, ['first_name', 'surname']);
+        $this->assertModelCreated($model, $id, ['topic_name']);
     }
 
     /**

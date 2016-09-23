@@ -5,6 +5,7 @@
     <phpunit_settings>
       <PhpUnitSettings load_method="PHPUNIT_PHAR" configuration_file_path="$PROJECT_DIR$/phpunit.xml" custom_loader_path="$PROJECT_DIR$/phpunit.phar" phpunit_phar_path="$PROJECT_DIR$/phpunit.phar" use_configuration_file="true" />
       <phpunit_by_interpreter interpreter_id="9db757bd-7195-4482-9590-77b0451f88c3" load_method="PHPUNIT_PHAR" configuration_file_path="/vagrant/phpunit.xml" custom_loader_path="/vagrant/phpunit.phar" phpunit_phar_path="/vagrant/phpunit.phar" use_configuration_file="true" />
+      <phpunit_by_interpreter interpreter_id="81179c0c-1249-4d86-9626-601b701c2bf4" load_method="PHPUNIT_PHAR" configuration_file_path="/vagrant/phpunit.xml" custom_loader_path="/vagrant/phpunit.phar" phpunit_phar_path="/vagrant/phpunit.phar" use_configuration_file="true" />
     </phpunit_settings>
   </component>
 </project>

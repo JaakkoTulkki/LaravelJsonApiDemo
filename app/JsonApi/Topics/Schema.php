@@ -32,18 +32,20 @@ class Schema extends EloquentSchema
      */
     public function getRelationships($resource, $isPrimary, array $includeRelationships)
     {
-//        if (!$resource instanceof Topic) {
-//            throw new SchemaException('Expecting a Topic model.');
-//        }
-//
-//        return [
-//            'posts' => [
-//                self::SHOW_SELF => true,
-//                self::SHOW_RELATED => true,
-//                self::DATA => isset($includeRelationships['posts']) ?
-//                    $resource->posts : $this->createBelongsToIdentity($resource, 'posts'),
-//            ],
-//        ];
-        return [];
+        if (!$resource instanceof Topic) {
+            throw new SchemaException('Expecting a topic model.');
+        }
+
+        return [
+            'posts' => [
+                self::SHOW_SELF => true,
+                self::SHOW_RELATED => true,
+                self::META => function () use ($resource) {
+                    ['total' => $resource->posts()->count()];
+                },
+            ],
+        ];
     }
+
+
 }

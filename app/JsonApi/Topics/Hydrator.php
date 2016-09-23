@@ -29,15 +29,4 @@ class Hydrator extends AbstractHydrator
 
         $record->fill($data);
     }
-
-    /**
-     * @param RelationshipInterface $relationship
-     * @param Post $model
-     */
-//    protected function hydratePostsRelationship(RelationshipInterface $relationship, Post $model)
-//    {
-//        /** @var Person|null $author */
-//        $author = Post::find($relationship->getIdentifier()->getId());
-//        $model->posts()->associate($author);
-//    }
 }
